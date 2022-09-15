@@ -164,3 +164,84 @@ function animate_svg3(){
         .on('end',animate_svg3)
 }
 animate_svg3()
+
+
+let table_top = svg4.append('rect')
+    .attr('x', 20)
+    .attr('y', 50)
+    .attr('width', 75)
+    .attr('height', 2)
+    .attr('stroke', 'black')
+    .attr('fill', 'black')
+let leg_left = svg4.append('rect')
+    .attr('x', 20)
+    .attr('y', 57)
+    .attr('width', 5)
+    .attr('height', 30)
+    .attr('stroke', 'black')
+    .attr('fill', 'black')
+let leg_right = svg4.append('rect')
+    .attr('x', 90)
+    .attr('y', 57)
+    .attr('width', 5)
+    .attr('height', 30)
+    .attr('stroke', 'black')
+    .attr('fill', 'black')
+
+function table_flip(){
+    let hinge = d3.interpolateString('rotate(0, 90, 90)', 'rotate(45, 90, 90)')
+    let swingback = d3.interpolateString('rotate(45, 90, 90)', 'rotate(0, 90, 90)')
+    table_top.transition()
+        .attrTween('transform', function(d,i,a){return hinge})
+        .duration(2000)
+    leg_left.transition()
+        .attrTween('transform', function(d,i,a){return hinge})
+        .duration(2000)
+    leg_right.transition()
+        .attrTween('transform', function(d,i,a){return hinge})
+        .duration(2000)
+
+
+}
+
+table_flip()
+
+let table_top2 = svg5.append('rect')
+    .attr('x', 20)
+    .attr('y', 50)
+    .attr('width', 75)
+    .attr('height', 2)
+    .attr('stroke', 'black')
+    .attr('fill', 'black')
+let leg_left2 = svg5.append('rect')
+    .attr('x', 20)
+    .attr('y', 57)
+    .attr('width', 5)
+    .attr('height', 30)
+    .attr('stroke', 'black')
+    .attr('fill', 'black')
+let leg_right2 = svg5.append('rect')
+    .attr('x', 90)
+    .attr('y', 57)
+    .attr('width', 5)
+    .attr('height', 30)
+    .attr('stroke', 'black')
+    .attr('fill', 'black')
+
+function table_unflip(){
+    let hinge = d3.interpolateString('rotate(0, 90, 90)', 'rotate(45, 90, 90)')
+    let swingback = d3.interpolateString('rotate(45, 90, 90)', 'rotate(0, 90, 90)')
+    table_top2.transition()
+        .attrTween('transform', function(d,i,a){return swingback})
+        .duration(2000)
+    leg_left2.transition()
+        .attrTween('transform', function(d,i,a){return swingback})
+        .duration(2000)
+    leg_right2.transition()
+        .attrTween('transform', function(d,i,a){return swingback})
+        .duration(2000)
+
+
+}
+
+table_unflip()
